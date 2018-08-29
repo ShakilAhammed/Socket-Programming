@@ -8,7 +8,7 @@ public class ClientOne {
     public static void main(String args[])
     {
         Client clientOne = new Client();
-        clientOne.connectToServer("192.168.0.100", 6000);
+        clientOne.connectToServer("0.0.0.0", 6000);
         clientOne.startConversion();
         //clientOne.stopConnection();
     }

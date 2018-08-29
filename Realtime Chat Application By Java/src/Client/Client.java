@@ -41,7 +41,7 @@ public class Client{
 //    }
 //
     public void startConversion() {
-        //threadWritter.start();
+        threadWritter.start();
         threadListener.start();
     }
 

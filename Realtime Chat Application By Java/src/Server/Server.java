@@ -14,9 +14,6 @@ public class Server {
     private BufferedReader reader;
     private Thread threadServer;
     private MultiThreadServerEventWritter multiThreadEventWritterServer;
-    public Server() {
-        threadServer = new Thread(multiThreadEventWritterServer);
-    }
     public void startServer(int port) {
         try {
             serverSocket = new ServerSocket(port);
@@ -27,6 +24,7 @@ public class Server {
                 writer = new PrintWriter(clientSocket.getOutputStream(), true);
                 reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 multiThreadEventWritterServer = new MultiThreadServerEventWritter(reader, writer, clientSocket);
+                threadServer = new Thread(multiThreadEventWritterServer);
                 threadServer.start();
             }
         } catch (IOException e) {
